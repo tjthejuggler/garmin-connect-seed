@@ -22,4 +22,4 @@ All you'll need to get started is edit the ```properties.mk``` file. Here's a de
 ## How to use?
 To execute the **run** target, run ```make run``` from the home folder of your app
 
-#Testing github
+#Testing github again
