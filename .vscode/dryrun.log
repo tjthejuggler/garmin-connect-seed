@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/lunkwill/projects/garmin-connect-seed'
+/home/lunkwill/.Garmin/ConnectIQ/Sdks/connectiq-sdk-lin-4.1.5-2022-08-03-6e17bf167/bin/monkeyc \
+--jungles ./monkey.jungle \
+--device fenix6xpro \
+--output bin/`grep entry manifest.xml | sed 's/.*entry="\([^"]*\).*/\1/'`.prg \
+--private-key /home/lunkwill/projects/garmin_dev_key/developer_key \
+--warn
+make: Leaving directory '/home/lunkwill/projects/garmin-connect-seed'
+ 
