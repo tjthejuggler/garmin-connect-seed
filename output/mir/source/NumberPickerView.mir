@@ -1,0 +1,793 @@
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 7; ]
+import Toybox.Graphics;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 8; ]
+import Toybox.Lang;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 9; ]
+import Toybox.Time;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 10; ]
+import Toybox.WatchUi;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 12; ]
+type PickerType as Number or Float or Duration;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 15; ]
+class PickerDelegate extends WatchUi.NumberPickerDelegate{
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 15; ]
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 15; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 17; @position = 16; ]
+    private
+    var _view as NumberPickerView;
+    //! Constructor
+    //! @param view The current view
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 21; ]
+    public
+    function initialize(view as NumberPickerView) as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_21_57_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 22 8 ]
+        %tmp.2 = getv ? :NumberPickerDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 23 8 ]
+        %tmp.5 = lgetv %view;
+        putv self :_view %tmp.5;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_21_57_stop:
+    }
+    //! Handle a number being entered
+    //! @param value The number that was entered
+    //! @return true if handled, false otherwise
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 29; ]
+    public
+    function onNumberPicked(value as PickerType) as Boolean {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_29_67_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 30 8 ]
+        %tmp.2 = getv ? :_view;
+        %tmp.3 = getv function %tmp.2 :setCurrentValue;
+        %tmp.5 = lgetv %value;
+        invoke %tmp.2 %tmp.3(%tmp.5);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 31 8 ]
+        %tmp.6 = true;
+        ret %tmp.6;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_29_67_stop:
+    }
+}
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 36; ]
+class BaseInputDelegate extends WatchUi.BehaviorDelegate{
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 36; ]
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 36; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 38; @position = 16; ]
+    private
+    var _count as Number = 0;
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 39; @position = 16; ]
+    private
+    var _view as NumberPickerView;
+    //! Constructor
+    //! @param view The current view
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 43; ]
+    public
+    function initialize(view as NumberPickerView) as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_43_57_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 44 8 ]
+        %tmp.2 = getv ? :BehaviorDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 45 8 ]
+        %tmp.5 = lgetv %view;
+        putv self :_view %tmp.5;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_43_57_stop:
+    }
+    //! On select behavior, push new Number Picker
+    //! @return true if handled, false otherwise
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 50; ]
+    public
+    function onSelect() as Boolean {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_50_42_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 51 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :onMenu;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        ret %tmp.3;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_50_42_stop:
+    }
+    //! On menu behavior, push new Number Picker
+    //! @return true if handled, false otherwise
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 56; ]
+    public
+    function onMenu() as Boolean {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_56_40_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 57 8 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_57_8_if_stmt:
+        %tmp.2 = getm $.Toybox.WatchUi;
+        %tmp.4 = const :NumberPicker;
+        %tmp.5 = canhazplz %tmp.2 %tmp.4;
+        bf %tmp.5 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_57_8_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_57_8_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_57_39_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 58 12 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_12_if_stmt:
+        %tmp.7 = getv ? :_count;
+        %tmp.8 = 0;
+        %tmp.9 = eq %tmp.7 %tmp.8;
+        bf %tmp.9 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_12_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_12_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_29_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 59 16 ]
+        %tmp.11 = getv ? :_view;
+        %tmp.12 = getv function %tmp.11 :setModeLabel;
+        %tmp.13 = "Distance";
+        invoke %tmp.11 %tmp.12(%tmp.13);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 60 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_29_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_29_stop" ]
+        %value.1 = local;
+        %tmp.14 = 1000f;
+        lputv %value.1 %tmp.14;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 61 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_29_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_29_stop" ]
+        %np.2 = local;
+        %tmp.17 = getm $.Toybox.WatchUi;
+        %tmp.18 = getv function ? %tmp.17 :NumberPicker;
+        %tmp.19 = getm $.Toybox.WatchUi;
+        %tmp.20 = getv %tmp.19 :NUMBER_PICKER_DISTANCE;
+        %tmp.22 = lgetv %value.1;
+        %tmp.15 = newc %tmp.18 (%tmp.20, %tmp.22);
+        lputv %np.2 %tmp.15;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 62 16 ]
+        %tmp.23 = getm $.Toybox.WatchUi;
+        %tmp.24 = getv function %tmp.23 :pushView;
+        %tmp.26 = lgetv %np.2;
+        %tmp.30 = getm $;
+        %tmp.31 = getv %tmp.30 :PickerDelegate;
+        %tmp.33 = getv ? :_view;
+        %tmp.27 = newc %tmp.31 (%tmp.33);
+        %tmp.34 = getm $.Toybox.WatchUi;
+        %tmp.35 = getv %tmp.34 :SLIDE_IMMEDIATE;
+        invoke %tmp.23 %tmp.24(%tmp.26, %tmp.27, %tmp.35);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 63 16 ]
+        %tmp.38 = getv ? :_count;
+        %tmp.39 = add %tmp.38 1;
+        putv self :_count dup %tmp.39;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_29_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_12_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_12_if_false:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 64 19 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_19_if_stmt:
+        %tmp.41 = getv ? :_count;
+        %tmp.42 = 1;
+        %tmp.43 = eq %tmp.41 %tmp.42;
+        bf %tmp.43 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_19_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_19_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_36_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 65 16 ]
+        %tmp.45 = getv ? :_view;
+        %tmp.46 = getv function %tmp.45 :setModeLabel;
+        %tmp.47 = "Duration HH:MM:SS";
+        invoke %tmp.45 %tmp.46(%tmp.47);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 67 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_36_stop" ]
+        %value.3 = local;
+        %tmp.48 = getm $.Toybox.Time;
+        %tmp.49 = getv %tmp.48 :Gregorian;
+        %tmp.50 = getv function %tmp.49 :duration;
+        %tmp.51 = newd 3;
+        %tmp.53 = const :hours;
+        %tmp.54 = 9;
+        %tmp.55 = dup %tmp.51;
+        %tmp.56 = aputv %tmp.55 %tmp.53 %tmp.54;
+        %tmp.58 = const :minutes;
+        %tmp.59 = 8;
+        %tmp.60 = dup %tmp.56;
+        %tmp.61 = aputv %tmp.60 %tmp.58 %tmp.59;
+        %tmp.63 = const :seconds;
+        %tmp.64 = 10;
+        %tmp.65 = dup %tmp.61;
+        %tmp.66 = aputv %tmp.65 %tmp.63 %tmp.64;
+        %tmp.67 = invoke %tmp.49 %tmp.50(%tmp.66);
+        lputv %value.3 %tmp.67;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 68 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_36_stop" ]
+        %np.4 = local;
+        %tmp.70 = getm $.Toybox.WatchUi;
+        %tmp.71 = getv function ? %tmp.70 :NumberPicker;
+        %tmp.72 = getm $.Toybox.WatchUi;
+        %tmp.73 = getv %tmp.72 :NUMBER_PICKER_TIME;
+        %tmp.75 = lgetv %value.3;
+        %tmp.68 = newc %tmp.71 (%tmp.73, %tmp.75);
+        lputv %np.4 %tmp.68;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 69 16 ]
+        %tmp.76 = getm $.Toybox.WatchUi;
+        %tmp.77 = getv function %tmp.76 :pushView;
+        %tmp.79 = lgetv %np.4;
+        %tmp.83 = getm $;
+        %tmp.84 = getv %tmp.83 :PickerDelegate;
+        %tmp.86 = getv ? :_view;
+        %tmp.80 = newc %tmp.84 (%tmp.86);
+        %tmp.87 = getm $.Toybox.WatchUi;
+        %tmp.88 = getv %tmp.87 :SLIDE_IMMEDIATE;
+        invoke %tmp.76 %tmp.77(%tmp.79, %tmp.80, %tmp.88);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 70 16 ]
+        %tmp.91 = getv ? :_count;
+        %tmp.92 = add %tmp.91 1;
+        putv self :_count dup %tmp.92;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_36_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_19_if_false:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 71 19 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_19_if_stmt:
+        %tmp.94 = getv ? :_count;
+        %tmp.95 = 2;
+        %tmp.96 = eq %tmp.94 %tmp.95;
+        bf %tmp.96 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_19_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_19_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_36_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 72 16 ]
+        %tmp.98 = getv ? :_view;
+        %tmp.99 = getv function %tmp.98 :setModeLabel;
+        %tmp.100 = "Duration MM:SS";
+        invoke %tmp.98 %tmp.99(%tmp.100);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 73 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_36_stop" ]
+        %value.5 = local;
+        %tmp.101 = getm $.Toybox.Time;
+        %tmp.102 = getv %tmp.101 :Gregorian;
+        %tmp.103 = getv function %tmp.102 :duration;
+        %tmp.104 = newd 3;
+        %tmp.106 = const :hours;
+        %tmp.107 = 1;
+        %tmp.108 = dup %tmp.104;
+        %tmp.109 = aputv %tmp.108 %tmp.106 %tmp.107;
+        %tmp.111 = const :minutes;
+        %tmp.112 = 8;
+        %tmp.113 = dup %tmp.109;
+        %tmp.114 = aputv %tmp.113 %tmp.111 %tmp.112;
+        %tmp.116 = const :seconds;
+        %tmp.117 = 10;
+        %tmp.118 = dup %tmp.114;
+        %tmp.119 = aputv %tmp.118 %tmp.116 %tmp.117;
+        %tmp.120 = invoke %tmp.102 %tmp.103(%tmp.119);
+        lputv %value.5 %tmp.120;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 74 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_36_stop" ]
+        %np.6 = local;
+        %tmp.123 = getm $.Toybox.WatchUi;
+        %tmp.124 = getv function ? %tmp.123 :NumberPicker;
+        %tmp.125 = getm $.Toybox.WatchUi;
+        %tmp.126 = getv %tmp.125 :NUMBER_PICKER_TIME_MIN_SEC;
+        %tmp.128 = lgetv %value.5;
+        %tmp.121 = newc %tmp.124 (%tmp.126, %tmp.128);
+        lputv %np.6 %tmp.121;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 75 16 ]
+        %tmp.129 = getm $.Toybox.WatchUi;
+        %tmp.130 = getv function %tmp.129 :pushView;
+        %tmp.132 = lgetv %np.6;
+        %tmp.136 = getm $;
+        %tmp.137 = getv %tmp.136 :PickerDelegate;
+        %tmp.139 = getv ? :_view;
+        %tmp.133 = newc %tmp.137 (%tmp.139);
+        %tmp.140 = getm $.Toybox.WatchUi;
+        %tmp.141 = getv %tmp.140 :SLIDE_IMMEDIATE;
+        invoke %tmp.129 %tmp.130(%tmp.132, %tmp.133, %tmp.141);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 76 16 ]
+        %tmp.144 = getv ? :_count;
+        %tmp.145 = add %tmp.144 1;
+        putv self :_count dup %tmp.145;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_36_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_19_if_false:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 77 19 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_19_if_stmt:
+        %tmp.147 = getv ? :_count;
+        %tmp.148 = 3;
+        %tmp.149 = eq %tmp.147 %tmp.148;
+        bf %tmp.149 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_19_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_19_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_36_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 78 16 ]
+        %tmp.151 = getv ? :_view;
+        %tmp.152 = getv function %tmp.151 :setModeLabel;
+        %tmp.153 = "Time Of Day";
+        invoke %tmp.151 %tmp.152(%tmp.153);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 79 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_36_stop" ]
+        %value.7 = local;
+        %tmp.154 = getm $.Toybox.Time;
+        %tmp.155 = getv %tmp.154 :Gregorian;
+        %tmp.156 = getv function %tmp.155 :duration;
+        %tmp.157 = newd 3;
+        %tmp.159 = const :hours;
+        %tmp.160 = 23;
+        %tmp.161 = dup %tmp.157;
+        %tmp.162 = aputv %tmp.161 %tmp.159 %tmp.160;
+        %tmp.164 = const :minutes;
+        %tmp.165 = 8;
+        %tmp.166 = dup %tmp.162;
+        %tmp.167 = aputv %tmp.166 %tmp.164 %tmp.165;
+        %tmp.169 = const :seconds;
+        %tmp.170 = 10;
+        %tmp.171 = dup %tmp.167;
+        %tmp.172 = aputv %tmp.171 %tmp.169 %tmp.170;
+        %tmp.173 = invoke %tmp.155 %tmp.156(%tmp.172);
+        lputv %value.7 %tmp.173;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 80 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_36_stop" ]
+        %np.8 = local;
+        %tmp.176 = getm $.Toybox.WatchUi;
+        %tmp.177 = getv function ? %tmp.176 :NumberPicker;
+        %tmp.178 = getm $.Toybox.WatchUi;
+        %tmp.179 = getv %tmp.178 :NUMBER_PICKER_TIME_OF_DAY;
+        %tmp.181 = lgetv %value.7;
+        %tmp.174 = newc %tmp.177 (%tmp.179, %tmp.181);
+        lputv %np.8 %tmp.174;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 81 16 ]
+        %tmp.182 = getm $.Toybox.WatchUi;
+        %tmp.183 = getv function %tmp.182 :pushView;
+        %tmp.185 = lgetv %np.8;
+        %tmp.189 = getm $;
+        %tmp.190 = getv %tmp.189 :PickerDelegate;
+        %tmp.192 = getv ? :_view;
+        %tmp.186 = newc %tmp.190 (%tmp.192);
+        %tmp.193 = getm $.Toybox.WatchUi;
+        %tmp.194 = getv %tmp.193 :SLIDE_IMMEDIATE;
+        invoke %tmp.182 %tmp.183(%tmp.185, %tmp.186, %tmp.194);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 82 16 ]
+        %tmp.197 = getv ? :_count;
+        %tmp.198 = add %tmp.197 1;
+        putv self :_count dup %tmp.198;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_36_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_19_if_false:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 83 19 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_19_if_stmt:
+        %tmp.200 = getv ? :_count;
+        %tmp.201 = 4;
+        %tmp.202 = eq %tmp.200 %tmp.201;
+        bf %tmp.202 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_19_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_19_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_36_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 84 16 ]
+        %tmp.204 = getv ? :_view;
+        %tmp.205 = getv function %tmp.204 :setModeLabel;
+        %tmp.206 = "Weight";
+        invoke %tmp.204 %tmp.205(%tmp.206);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 85 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_36_stop" ]
+        %value.9 = local;
+        %tmp.207 = 454;
+        lputv %value.9 %tmp.207;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 86 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_36_stop" ]
+        %np.10 = local;
+        %tmp.210 = getm $.Toybox.WatchUi;
+        %tmp.211 = getv function ? %tmp.210 :NumberPicker;
+        %tmp.212 = getm $.Toybox.WatchUi;
+        %tmp.213 = getv %tmp.212 :NUMBER_PICKER_WEIGHT;
+        %tmp.215 = lgetv %value.9;
+        %tmp.208 = newc %tmp.211 (%tmp.213, %tmp.215);
+        lputv %np.10 %tmp.208;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 87 16 ]
+        %tmp.216 = getm $.Toybox.WatchUi;
+        %tmp.217 = getv function %tmp.216 :pushView;
+        %tmp.219 = lgetv %np.10;
+        %tmp.223 = getm $;
+        %tmp.224 = getv %tmp.223 :PickerDelegate;
+        %tmp.226 = getv ? :_view;
+        %tmp.220 = newc %tmp.224 (%tmp.226);
+        %tmp.227 = getm $.Toybox.WatchUi;
+        %tmp.228 = getv %tmp.227 :SLIDE_IMMEDIATE;
+        invoke %tmp.216 %tmp.217(%tmp.219, %tmp.220, %tmp.228);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 88 16 ]
+        %tmp.231 = getv ? :_count;
+        %tmp.232 = add %tmp.231 1;
+        putv self :_count dup %tmp.232;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_36_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_19_if_false:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 89 19 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_19_if_stmt:
+        %tmp.234 = getv ? :_count;
+        %tmp.235 = 5;
+        %tmp.236 = eq %tmp.234 %tmp.235;
+        bf %tmp.236 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_19_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_19_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_36_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 90 16 ]
+        %tmp.238 = getv ? :_view;
+        %tmp.239 = getv function %tmp.238 :setModeLabel;
+        %tmp.240 = "Height";
+        invoke %tmp.238 %tmp.239(%tmp.240);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 91 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_36_stop" ]
+        %value.11 = local;
+        %tmp.241 = 2;
+        lputv %value.11 %tmp.241;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 92 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_36_stop" ]
+        %np.12 = local;
+        %tmp.244 = getm $.Toybox.WatchUi;
+        %tmp.245 = getv function ? %tmp.244 :NumberPicker;
+        %tmp.246 = getm $.Toybox.WatchUi;
+        %tmp.247 = getv %tmp.246 :NUMBER_PICKER_HEIGHT;
+        %tmp.249 = lgetv %value.11;
+        %tmp.242 = newc %tmp.245 (%tmp.247, %tmp.249);
+        lputv %np.12 %tmp.242;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 93 16 ]
+        %tmp.250 = getm $.Toybox.WatchUi;
+        %tmp.251 = getv function %tmp.250 :pushView;
+        %tmp.253 = lgetv %np.12;
+        %tmp.257 = getm $;
+        %tmp.258 = getv %tmp.257 :PickerDelegate;
+        %tmp.260 = getv ? :_view;
+        %tmp.254 = newc %tmp.258 (%tmp.260);
+        %tmp.261 = getm $.Toybox.WatchUi;
+        %tmp.262 = getv %tmp.261 :SLIDE_IMMEDIATE;
+        invoke %tmp.250 %tmp.251(%tmp.253, %tmp.254, %tmp.262);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 94 16 ]
+        %tmp.265 = getv ? :_count;
+        %tmp.266 = add %tmp.265 1;
+        putv self :_count dup %tmp.266;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_36_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_19_if_false:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 95 19 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_19_if_stmt:
+        %tmp.268 = getv ? :_count;
+        %tmp.269 = 6;
+        %tmp.270 = eq %tmp.268 %tmp.269;
+        bf %tmp.270 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_19_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_19_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_36_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 96 16 ]
+        %tmp.272 = getv ? :_view;
+        %tmp.273 = getv function %tmp.272 :setModeLabel;
+        %tmp.274 = "Calories";
+        invoke %tmp.272 %tmp.273(%tmp.274);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 97 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_36_stop" ]
+        %value.13 = local;
+        %tmp.275 = 200;
+        lputv %value.13 %tmp.275;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 98 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_36_stop" ]
+        %np.14 = local;
+        %tmp.278 = getm $.Toybox.WatchUi;
+        %tmp.279 = getv function ? %tmp.278 :NumberPicker;
+        %tmp.280 = getm $.Toybox.WatchUi;
+        %tmp.281 = getv %tmp.280 :NUMBER_PICKER_CALORIES;
+        %tmp.283 = lgetv %value.13;
+        %tmp.276 = newc %tmp.279 (%tmp.281, %tmp.283);
+        lputv %np.14 %tmp.276;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 99 16 ]
+        %tmp.284 = getm $.Toybox.WatchUi;
+        %tmp.285 = getv function %tmp.284 :pushView;
+        %tmp.287 = lgetv %np.14;
+        %tmp.291 = getm $;
+        %tmp.292 = getv %tmp.291 :PickerDelegate;
+        %tmp.294 = getv ? :_view;
+        %tmp.288 = newc %tmp.292 (%tmp.294);
+        %tmp.295 = getm $.Toybox.WatchUi;
+        %tmp.296 = getv %tmp.295 :SLIDE_IMMEDIATE;
+        invoke %tmp.284 %tmp.285(%tmp.287, %tmp.288, %tmp.296);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 100 16 ]
+        %tmp.299 = getv ? :_count;
+        %tmp.300 = add %tmp.299 1;
+        putv self :_count dup %tmp.300;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_36_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_19_if_false:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 101 19 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_19_if_stmt:
+        %tmp.302 = getv ? :_count;
+        %tmp.303 = 7;
+        %tmp.304 = eq %tmp.302 %tmp.303;
+        bf %tmp.304 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_19_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_36_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 102 16 ]
+        %tmp.306 = getv ? :_view;
+        %tmp.307 = getv function %tmp.306 :setModeLabel;
+        %tmp.308 = "Birth Year";
+        invoke %tmp.306 %tmp.307(%tmp.308);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 103 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_36_stop" ]
+        %value.15 = local;
+        %tmp.309 = 1980;
+        lputv %value.15 %tmp.309;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 104 16 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_36_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_36_stop" ]
+        %np.16 = local;
+        %tmp.312 = getm $.Toybox.WatchUi;
+        %tmp.313 = getv function ? %tmp.312 :NumberPicker;
+        %tmp.314 = getm $.Toybox.WatchUi;
+        %tmp.315 = getv %tmp.314 :NUMBER_PICKER_BIRTH_YEAR;
+        %tmp.317 = lgetv %value.15;
+        %tmp.310 = newc %tmp.313 (%tmp.315, %tmp.317);
+        lputv %np.16 %tmp.310;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 105 16 ]
+        %tmp.318 = getm $.Toybox.WatchUi;
+        %tmp.319 = getv function %tmp.318 :pushView;
+        %tmp.321 = lgetv %np.16;
+        %tmp.325 = getm $;
+        %tmp.326 = getv %tmp.325 :PickerDelegate;
+        %tmp.328 = getv ? :_view;
+        %tmp.322 = newc %tmp.326 (%tmp.328);
+        %tmp.329 = getm $.Toybox.WatchUi;
+        %tmp.330 = getv %tmp.329 :SLIDE_IMMEDIATE;
+        invoke %tmp.318 %tmp.319(%tmp.321, %tmp.322, %tmp.330);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 106 16 ]
+        %tmp.331 = 0;
+        putv self :_count %tmp.331;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_36_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_19_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_101_19_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_95_19_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_89_19_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_83_19_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_77_19_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_71_19_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_64_19_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_58_12_if_end:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 108 12 ]
+        %tmp.332 = true;
+        ret %tmp.332;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_57_39_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_57_8_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_57_8_if_end:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 111 8 ]
+        %tmp.333 = false;
+        ret %tmp.333;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_56_40_stop:
+    }
+}
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 117; ]
+class NumberPickerView extends WatchUi.View{
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 117; ]
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 117; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 119; @position = 16; ]
+    private
+    var _curValue as PickerType or Null;
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 120; @position = 16; ]
+    private
+    var _modeLabel as String = "";
+    //! Constructor
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 123; ]
+    public
+    function initialize() as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_123_33_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 124 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_123_33_stop:
+    }
+    //! Load the resources
+    //! @param dc Device context
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 129; ]
+    public
+    function onLayout(dc as Dc) as Void {
+    }
+    //! Restore the state of the app and prepare the view to be shown
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 133; ]
+    public
+    function onShow() as Void {
+    }
+    //! Update the view to show the value picked
+    //! @param dc Device context
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 138; ]
+    public
+    function onUpdate(dc as Dc) as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 139 8 ]
+        %tmp.1 = lgetv %dc;
+        %tmp.2 = getv function %tmp.1 :setColor;
+        %tmp.3 = getm $.Toybox.Graphics;
+        %tmp.4 = getv %tmp.3 :COLOR_TRANSPARENT;
+        %tmp.5 = getm $.Toybox.Graphics;
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 140 8 ]
+        %tmp.7 = lgetv %dc;
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 141 8 ]
+        %tmp.9 = lgetv %dc;
+        %tmp.10 = getv function %tmp.9 :setColor;
+        %tmp.11 = getm $.Toybox.Graphics;
+        %tmp.12 = getv %tmp.11 :COLOR_WHITE;
+        %tmp.13 = getm $.Toybox.Graphics;
+        %tmp.14 = getv %tmp.13 :COLOR_TRANSPARENT;
+        invoke %tmp.9 %tmp.10(%tmp.12, %tmp.14);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 142 8 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_stop" ]
+        %modeLabelFontHeight.1 = local;
+        %tmp.15 = lgetv %dc;
+        %tmp.16 = getv function %tmp.15 :getFontHeight;
+        %tmp.17 = getm $.Toybox.Graphics;
+        %tmp.18 = getv %tmp.17 :FONT_SMALL;
+        %tmp.19 = invoke %tmp.15 %tmp.16(%tmp.18);
+        lputv %modeLabelFontHeight.1 %tmp.19;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 143 8 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_stop" ]
+        %centerX.2 = local;
+        %tmp.20 = lgetv %dc;
+        %tmp.21 = getv function %tmp.20 :getWidth;
+        %tmp.22 = invoke %tmp.20 %tmp.21();
+        %tmp.23 = 2;
+        %tmp.24 = div %tmp.22 %tmp.23;
+        lputv %centerX.2 %tmp.24;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 144 8 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_stop" ]
+        %centerY.3 = local;
+        %tmp.25 = lgetv %dc;
+        %tmp.26 = getv function %tmp.25 :getHeight;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        %tmp.28 = 2;
+        %tmp.29 = div %tmp.27 %tmp.28;
+        lputv %centerY.3 %tmp.29;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 145 8 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_stop" ]
+        %labelLocY.4 = local;
+        %tmp.31 = lgetv %centerY.3;
+        %tmp.32 = 10;
+        %tmp.33 = sub %tmp.31 %tmp.32;
+        lputv %labelLocY.4 %tmp.33;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 146 8 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_stop" ]
+        %valueLocY.5 = local;
+        %tmp.35 = lgetv %labelLocY.4;
+        %tmp.37 = lgetv %modeLabelFontHeight.1;
+        %tmp.38 = add %tmp.35 %tmp.37;
+        %tmp.39 = 5;
+        %tmp.40 = add %tmp.38 %tmp.39;
+        lputv %valueLocY.5 %tmp.40;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 148 8 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_8_if_stmt:
+        %tmp.42 = getm $.Toybox.WatchUi;
+        %tmp.44 = const :NumberPicker;
+        %tmp.45 = canhazplz %tmp.42 %tmp.44;
+        bf %tmp.45 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_8_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_8_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_39_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 149 12 ]
+        %tmp.46 = lgetv %dc;
+        %tmp.47 = getv function %tmp.46 :drawText;
+        %tmp.49 = lgetv %centerX.2;
+        %tmp.51 = lgetv %centerY.3;
+        %tmp.52 = 5;
+        %tmp.53 = sub %tmp.51 %tmp.52;
+        %tmp.54 = getm $.Toybox.Graphics;
+        %tmp.55 = getv %tmp.54 :FONT_SMALL;
+        %tmp.56 = "Press Menu Or Select";
+        %tmp.57 = getm $.Toybox.Graphics;
+        %tmp.58 = getv %tmp.57 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.46 %tmp.47(%tmp.49, %tmp.53, %tmp.55, %tmp.56, %tmp.58);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 150 12 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_39_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_39_stop" ]
+        %curValue.6 = local;
+        %tmp.60 = getv ? :_curValue;
+        lputv %curValue.6 %tmp.60;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 151 12 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_151_12_if_stmt:
+        %tmp.62 = lgetv %curValue.6;
+        %tmp.63 = null;
+        %tmp.64 = ne %tmp.62 %tmp.63;
+        bf %tmp.64 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_151_12_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_151_12_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_151_34_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 152 16 ]
+        %tmp.65 = lgetv %dc;
+        %tmp.66 = getv function %tmp.65 :drawText;
+        %tmp.68 = lgetv %centerX.2;
+        %tmp.70 = lgetv %labelLocY.4;
+        %tmp.71 = getm $.Toybox.Graphics;
+        %tmp.72 = getv %tmp.71 :FONT_SMALL;
+        %tmp.74 = getv ? :_modeLabel;
+        %tmp.75 = getm $.Toybox.Graphics;
+        %tmp.76 = getv %tmp.75 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.65 %tmp.66(%tmp.68, %tmp.70, %tmp.72, %tmp.74, %tmp.76);
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 153 16 ]
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_16_if_stmt:
+        %tmp.78 = lgetv %curValue.6;
+        %tmp.79 = as %tmp.78 { (!Null) };
+        %tmp.80 = getm $.Toybox.Time;
+        %tmp.81 = getv %tmp.80 :Duration;
+        %tmp.82 = isa %tmp.79 %tmp.81;
+        bf %tmp.82 @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_16_if_false;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_16_if_true:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_55_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 154 20 ]
+        %tmp.83 = lgetv %dc;
+        %tmp.84 = getv function %tmp.83 :drawText;
+        %tmp.86 = lgetv %centerX.2;
+        %tmp.88 = lgetv %valueLocY.5;
+        %tmp.89 = getm $.Toybox.Graphics;
+        %tmp.90 = getv %tmp.89 :FONT_SMALL;
+        %tmp.91 = lgetv %curValue.6;
+        %tmp.92 = as %tmp.91 { (Time.Duration) && (!Null) };
+        %tmp.93 = getv function %tmp.92 :value;
+        %tmp.94 = invoke %tmp.92 %tmp.93();
+        %tmp.95 = getv function %tmp.94 :toString;
+        %tmp.96 = invoke %tmp.94 %tmp.95();
+        %tmp.97 = getm $.Toybox.Graphics;
+        %tmp.98 = getv %tmp.97 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.83 %tmp.84(%tmp.86, %tmp.88, %tmp.90, %tmp.96, %tmp.98);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_55_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_16_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_16_if_false:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_155_23_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 156 20 ]
+        %tmp.99 = lgetv %dc;
+        %tmp.100 = getv function %tmp.99 :drawText;
+        %tmp.102 = lgetv %centerX.2;
+        %tmp.104 = lgetv %valueLocY.5;
+        %tmp.105 = getm $.Toybox.Graphics;
+        %tmp.106 = getv %tmp.105 :FONT_SMALL;
+        %tmp.107 = lgetv %curValue.6;
+        %tmp.108 = as %tmp.107 { (!Time.Duration) && (!Null) };
+        %tmp.109 = getv function %tmp.108 :toString;
+        %tmp.110 = invoke %tmp.108 %tmp.109();
+        %tmp.111 = getm $.Toybox.Graphics;
+        %tmp.112 = getv %tmp.111 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.99 %tmp.100(%tmp.102, %tmp.104, %tmp.106, %tmp.110, %tmp.112);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_155_23_stop:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_153_16_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_151_34_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_151_12_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_151_12_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_39_stop:
+        goto @_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_8_if_end;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_8_if_false:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_159_15_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 160 12 ]
+        %tmp.113 = lgetv %dc;
+        %tmp.114 = getv function %tmp.113 :drawText;
+        %tmp.116 = lgetv %centerX.2;
+        %tmp.118 = lgetv %centerY.3;
+        %tmp.119 = 1;
+        %tmp.120 = sub %tmp.118 %tmp.119;
+        %tmp.121 = getm $.Toybox.Graphics;
+        %tmp.122 = getv %tmp.121 :FONT_SMALL;
+        %tmp.123 = "NumberPicker not supported.";
+        %tmp.124 = getm $.Toybox.Graphics;
+        %tmp.125 = getv %tmp.124 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.113 %tmp.114(%tmp.116, %tmp.120, %tmp.122, %tmp.123, %tmp.125);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_159_15_stop:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_148_8_if_end:
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_138_47_stop:
+    }
+    //! Set the current value
+    //! @param value The value
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 166; ]
+    public
+    function setCurrentValue(value as PickerType) as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_166_65_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 167 8 ]
+        %tmp.2 = lgetv %value;
+        putv self :_curValue %tmp.2;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_166_65_stop:
+    }
+    //! Set the label for the value picked
+    //! @param label The label
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 172; ]
+    public
+    function setModeLabel(label as String) as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_172_58_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc" 173 8 ]
+        %tmp.2 = lgetv %label;
+        putv self :_modeLabel %tmp.2;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerView_mc_172_58_stop:
+    }
+}
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerView.mc"; @line = 7; ]
+<init> {
+}

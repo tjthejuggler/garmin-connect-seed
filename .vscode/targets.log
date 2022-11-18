@@ -1,243 +1,283 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
-# GNU Make 4.2.1
+# GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug 21 18:05:32 2022
+# Make data base, printed on Fri Nov 18 17:12:39 2022
 
 # Variables
 
-# 'override' directive
-GNUMAKEFLAGS := 
-# automatic
-<D = $(patsubst %/,%,$(dir $<))
-# automatic
-?F = $(notdir $?)
 # environment
-DESKTOP_SESSION = ubuntu
-# default
-.SHELLFLAGS := -c
-# environment
-XDG_SESSION_CLASS = user
-# environment
-XDG_SESSION_TYPE = x11
-# environment
-VSCODE_LOG_NATIVE = false
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 1
-# automatic
-@D = $(patsubst %/,%,$(dir $@))
-# environment
-XAUTHORITY = /run/user/1000/gdm/Xauthority
-# environment
-GDMSESSION = ubuntu
-# environment
-XMODIFIERS = @im=ibus
-# makefile
-CURDIR := /home/lunkwill/projects/garmin-connect-seed
-# makefile
-SHELL = /bin/sh
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# environment
-_ = /usr/share/code/code
-# environment
-JOURNAL_STREAM = 8:54351
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# makefile (from 'properties.mk', line 1)
-MAKEFILE_LIST :=  Makefile properties.mk
-# automatic
-@F = $(notdir $@)
-# environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
-# environment
-USERNAME = lunkwill
-# environment
-XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# makefile (from 'properties.mk', line 1)
-DEVICE = fenix6xpro
-# environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-MANAGERPID = 2060
-# environment
-LESSOPEN = | /usr/bin/lesspipe %s
-# environment
-VSCODE_CWD = /home/lunkwill
-# default
-MAKE_HOST := x86_64-pc-linux-gnu
-# environment
-PATH = /home/lunkwill/.local/bin:/home/lunkwill/miniconda3/bin:/home/lunkwill/miniconda3/condabin:/home/lunkwill/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+GDK_BACKEND = x11
 # makefile (from 'Makefile', line 4)
 devices = `grep 'iq:product id' manifest.xml | sed 's/.*iq:product id="\([^"]*\).*/\1/'`
 # environment
-GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+LC_ALL = C
 # environment
-SESSION_MANAGER = local/Will-of-Lunk:@/tmp/.ICE-unix/2320,unix/Will-of-Lunk:/tmp/.ICE-unix/2320
+GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-XDG_RUNTIME_DIR = /run/user/1000
+SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
-CONDA_PREFIX = /home/lunkwill/miniconda3
+SNAP_INSTANCE_KEY = 
 # environment
-XDG_MENU_PREFIX = gnome-
+GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_LOG_STACK = false
+LC_NAME = de_DE.UTF-8
 # environment
-ELECTRON_RUN_AS_NODE = 1
+LC_NUMERIC = de_DE.UTF-8
 # environment
-INVOCATION_ID = dd1a1bbf8f09439dbf3db4625c062a39
+VSCODE_CWD = /home/lunkwill
+# environment
+LC_ADDRESS = de_DE.UTF-8
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+MAKE_COMMAND := make
 # environment
-LS_COLORS = 
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
 # environment
-XDG_SESSION_DESKTOP = ubuntu
+SNAP_INSTANCE_NAME = code
+# makefile (from 'properties.mk', line 4)
+PRIVATE_KEY = /home/lunkwill/projects/garmin_dev_key/developer_key
 # environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+GDK_PIXBUF_MODULEDIR = /snap/code/113/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 36874
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/lunkwill/projects/garmin-connect-seed
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# makefile (from 'properties.mk', line 1)
+DEVICE = fenix6xpro
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = :1
+VSCODE_CODE_CACHE_PATH = /home/lunkwill/.config/Code/CachedData/6261075646f055b99068d3688932416f2346dd3b
 # environment
-CONDA_EXE = /home/lunkwill/miniconda3/bin/conda
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.N4B3V1
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/lunkwill/projects/garmin-connect-seed
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# makefile (from 'Makefile', line 3)
+appName = `grep entry manifest.xml | sed 's/.*entry="\([^"]*\).*/\1/'`
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'properties.mk', line 1)
+MAKEFILE_LIST := Makefile properties.mk
+# environment
+SNAP_REEXEC = 
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 9668
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+# makefile (from 'properties.mk', line 2)
+SDK_HOME = /home/lunkwill/.Garmin/ConnectIQ/Sdks/connectiq-sdk-lin-4.1.5-2022-08-03-6e17bf167
+# environment
+SESSION_MANAGER = local/Will-of-Lunk:@/tmp/.ICE-unix/1893,unix/Will-of-Lunk:/tmp/.ICE-unix/1893
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 0
+# environment
+IM_CONFIG_CHECK_ENV = 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+SNAP_COOKIE = 4T1YiQW4u-gMOnyQ8iSq-XxNe3gBy-gyltO0jIxMR4hbEoX0Q6Hb
+# environment
+PATH = /home/lunkwill/.local/bin:/home/lunkwill/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LC_MONETARY = de_DE.UTF-8
+# automatic
+^F = $(notdir $^)
+# environment
+SNAP_USER_COMMON = /home/lunkwill/snap/code/common
+# environment
+LC_TIME = de_DE.UTF-8
+# environment
+SNAP = /snap/code/113
+# environment
+INVOCATION_ID = 4efe9817f2f147fe90b57fb0a5dbf61d
+# environment
+SNAP_REVISION = 113
+# environment
+SNAP_REAL_HOME = /home/lunkwill
+# environment
+USERNAME = lunkwill
+# environment
+GNOME_SETUP_DISPLAY = :1
+# environment
+LC_TELEPHONE = de_DE.UTF-8
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+?F = $(notdir $?)
+# makefile (from 'properties.mk', line 3)
+DEPLOY = /Volumes/GARMIN/GARMIN/APPS/
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# environment
+LS_COLORS = 
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = lunkwill
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+SNAP_ARCH = amd64
+# makefile
+.DEFAULT_GOAL := build
+# environment
+SYSTEMD_EXEC_PID = 1910
+# environment
+DISPLAY = :0
+# environment
+USER = lunkwill
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+SNAP_DATA = /var/snap/code/113
+# environment
+SNAP_CONTEXT = 4T1YiQW4u-gMOnyQ8iSq-XxNe3gBy-gyltO0jIxMR4hbEoX0Q6Hb
+# environment
+MANAGERPID = 1683
+# environment
+LC_MEASUREMENT = de_DE.UTF-8
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 9628
+# environment
+_ = /snap/code/113/usr/share/code/code
+# environment
+LC_PAPER = de_DE.UTF-8
 # makefile (from 'Makefile', line 5)
 JAVA_OPTIONS = JDK_JAVA_OPTIONS="--add-modules=java.xml.bind"
 # environment
-VSCODE_PIPE_LOGGING = true
+XDG_RUNTIME_DIR = /run/user/1000
 # environment
-PWD = /home/lunkwill/projects/garmin-connect-seed
-# default
-.LOADED := 
+GDK_PIXBUF_MODULE_FILE = /home/lunkwill/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SSH_AGENT_PID = 2283
+JOURNAL_STREAM = 8:36089
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# environment
-GTK_MODULES = gail:atk-bridge
+XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/lunkwill
 # environment
-LESSCLOSE = /usr/bin/lesspipe %s %s
-# environment
-VSCODE_CODE_CACHE_PATH = /home/lunkwill/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
-# environment
-LOGNAME = lunkwill
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-CONDA_PROMPT_MODIFIER = (base) 
-# makefile (from 'properties.mk', line 2)
-SDK_HOME = /home/lunkwill/.Garmin/ConnectIQ/Sdks/connectiq-sdk-lin-4.1.5-2022-08-03-6e17bf167
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# environment
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
-# environment
-MAKELEVEL := 0
-# environment
-CONDA_DEFAULT_ENV = base
-# default
-MAKE = $(MAKE_COMMAND)
-# default
-MAKECMDGOALS := all
-# environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 0
+ELECTRON_RUN_AS_NODE = 1
 # environment
-GNOME_SHELL_SESSION_MODE = ubuntu
+VSCODE_IPC_HOOK = /run/user/1000/vscode-6e279336-1.73.1-main.sock
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a3b9f7a1-79d9-4952-8d28-00e89adf973b.sock
+SNAP_NAME = code
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/113/usr/share/glib-2.0/schemas
+# environment
+IM_CONFIG_PHASE = 1
 # default
-MAKE_VERSION := 4.2.1
-# environment
-USER = lunkwill
-# makefile (from 'properties.mk', line 4)
-PRIVATE_KEY = /home/lunkwill/projects/garmin_dev_key/developer_key
-# makefile
-.DEFAULT_GOAL := build
-# environment
-XDG_CURRENT_DESKTOP = Unity
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# environment
-CONDA_SHLVL = 1
-# default
-MAKE_COMMAND := make
-# default
-.VARIABLES := 
-# automatic
-*F = $(notdir $*)
-# environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-6e279336-1.68.1-main.sock
-# makefile
-MAKEFLAGS = pqrR
-# environment
-MFLAGS = -pqrR
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# environment
-GDK_BACKEND = x11
-# automatic
-+F = $(notdir $+)
-# environment
-QT_ACCESSIBILITY = 1
-# makefile (from 'properties.mk', line 3)
-DEPLOY = /Volumes/GARMIN/GARMIN/APPS/
-# default
-MAKEFILES := 
+.RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
 # environment
-LC_ALL = C
-# makefile (from 'Makefile', line 3)
-appName = `grep entry manifest.xml | sed 's/.*entry="\([^"]*\).*/\1/'`
-# environment
-CONDA_PYTHON_EXE = /home/lunkwill/miniconda3/bin/python
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# automatic
-^F = $(notdir $^)
+SNAP_VERSION = 62610756
 # default
 SUFFIXES := 
 # environment
-_CE_M = 
+VSCODE_CLI = 1
 # environment
-CHROME_DESKTOP = code-url-handler.desktop
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-WINDOWPATH = 2
+SNAP_COMMON = /var/snap/code/common
 # default
-.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# default
-.RECIPEPREFIX := 
+SNAP_USER_DATA = /home/lunkwill/snap/code/113
 # environment
-LANG = C
+XDG_MENU_PREFIX = gnome-
 # environment
-VSCODE_PID = 36874
+GDMSESSION = ubuntu
 # environment
-_CE_CONDA = 
+LC_IDENTIFICATION = de_DE.UTF-8
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=112/1024=11%, Rehash=0, Collisions=14/139=10%
+# Load=132/1024=13%, Rehash=0, Collisions=6/164=4%
 
 # Pattern-specific Variable Values
 
@@ -245,9 +285,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 66309, inode 17539409): 15 files, no impossibilities.
+# . (device 66309, inode 19665244): 16 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -255,36 +295,38 @@ _CE_CONDA =
 
 # Files
 
-# Not a target:
-all:
-#  Command line target.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
-
-# Not a target:
-Makefile:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-21 16:49:54.294984917
-#  File has been updated.
-#  Successfully updated.
-
-build:
+deploy: build
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 8):
-	$(SDK_HOME)/bin/monkeyc \
-	--jungles ./monkey.jungle \
-	--device $(DEVICE) \
-	--output bin/$(appName).prg \
-	--private-key $(PRIVATE_KEY) \
-	--warn
+#  recipe to execute (from 'Makefile', line 34):
+	@cp bin/$(appName).prg $(DEPLOY)
+ 
 
 # Not a target:
 properties.mk:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-21 17:57:53.205616079
+#  Last modified 2022-08-21 16:57:52
+#  File has been updated.
+#  Successfully updated.
+
+package:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 37):
+	@$(SDK_HOME)/bin/monkeyc \
+	--jungles ./monkey.jungle \
+	--package-app \
+	--release \
+	--output bin/$(appName).iq \
+	--private-key $(PRIVATE_KEY) \
+	--warn
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 15:49:54
 #  File has been updated.
 #  Successfully updated.
 
@@ -292,7 +334,6 @@ buildall:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  recipe to execute (from 'Makefile', line 16):
 	@for device in $(devices); do \
 		echo "-----"; \
@@ -311,18 +352,12 @@ buildall:
 #  Modification time never checked.
 #  File has not been updated.
 
-package:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 37):
-	@$(SDK_HOME)/bin/monkeyc \
-	--jungles ./monkey.jungle \
-	--package-app \
-	--release \
-	--output bin/$(appName).iq \
-	--private-key $(PRIVATE_KEY) \
-	--warn
 
 run: build
 #  Implicit rule search has not been done.
@@ -334,12 +369,17 @@ run: build
 	$(JAVA_OPTIONS) \
 	$(SDK_HOME)/bin/monkeydo bin/$(appName).prg $(DEVICE)
 
-deploy: build
+build:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 34):
-	@cp bin/$(appName).prg $(DEPLOY)
+#  recipe to execute (from 'Makefile', line 8):
+	$(SDK_HOME)/bin/monkeyc \
+	--jungles ./monkey.jungle \
+	--device $(DEVICE) \
+	--output bin/$(appName).prg \
+	--private-key $(PRIVATE_KEY) \
+	--warn
 
 # files hash-table stats:
 # Load=10/1024=1%, Rehash=0, Collisions=0/23=0%
@@ -349,12 +389,12 @@ deploy: build
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 217 B / avg = 8 B
-# current buf: size = 8162 B / used = 217 B / count = 25 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 224 B / avg = 8 B
+# current buf: size = 8162 B / used = 224 B / count = 26 / avg = 8 B
 
-# strcache performance: lookups = 38 / hit rate = 34%
+# strcache performance: lookups = 39 / hit rate = 33%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=1/38=3%
-# Finished Make data base on Sun Aug 21 18:05:32 2022
+# Load=26/8192=0%, Rehash=0, Collisions=0/39=0%
+# Finished Make data base on Fri Nov 18 17:12:39 2022
 
  

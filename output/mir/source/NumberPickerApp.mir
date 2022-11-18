@@ -1,0 +1,201 @@
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 7; ]
+import Toybox.Application;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 8; ]
+import Toybox.Lang;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 9; ]
+import Toybox.WatchUi;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 10; ]
+import Toybox.Communications;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 11; ]
+import Toybox.Sensor;
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 16; ]
+class NumberPickerApp extends Application.AppBase{
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 16; ]
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 16; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 19; background = true; ]
+    class commListener extends Communications.ConnectionListener{
+        [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 20; ]
+        <init> {
+        }
+        [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 20; ]
+        static
+        <init> {
+        }
+        [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 21; ]
+        function initialize() as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_21_26_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 22 8 ]
+            %tmp.1 = getm $.Toybox.Communications;
+            %tmp.2 = getv %tmp.1 :ConnectionListener;
+            %tmp.3 = getv function %tmp.2 :initialize;
+            invoke %tmp.2 %tmp.3();
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_21_26_stop:
+        }
+        [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 24; ]
+        function onComplete() {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_24_26_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 25 8 ]
+            %tmp.2 = getv ? :System;
+            %tmp.3 = getv function %tmp.2 :println;
+            %tmp.4 = "Transmit Complete";
+            invoke %tmp.2 %tmp.3(%tmp.4);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_24_26_stop:
+        }
+        [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 28; ]
+        function onError() {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_28_23_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 29 8 ]
+            %tmp.2 = getv ? :System;
+            %tmp.3 = getv function %tmp.2 :println;
+            %tmp.4 = "Transmit Failed";
+            invoke %tmp.2 %tmp.3(%tmp.4);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_28_23_stop:
+        }
+    }
+    //! Constructor
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 35; ]
+    public
+    function initialize() as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_35_33_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 36 8 ]
+        %tmp.2 = getv ? :AppBase;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_35_33_stop:
+    }
+    //! Handle app startup
+    //! @param state Startup arguments
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 41; ]
+    public
+    function onStart(state as Dictionary or Null) as Void {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_41_58_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 42 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :startSensor;
+        invoke %tmp.1 %tmp.2();
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_41_58_stop:
+    }
+    //! Handle app shutdown
+    //! @param state Shutdown arguments
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 47; ]
+    public
+    function onStop(state as Dictionary or Null) as Void {
+    }
+    //! Return the initial views for the app
+    //! @return Array Pair [View, InputDelegate]
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 52; ]
+    public
+    function getInitialView() as Array<Views or InputDelegates> or Null {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_52_72_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 53 8 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_52_72_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_52_72_stop" ]
+        %view.1 = local;
+        %tmp.4 = getm $;
+        %tmp.5 = getv %tmp.4 :NumberPickerView;
+        %tmp.1 = newc %tmp.5 ();
+        lputv %view.1 %tmp.1;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 54 8 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_52_72_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_52_72_stop" ]
+        %delegate.2 = local;
+        %tmp.9 = getm $;
+        %tmp.10 = getv %tmp.9 :BaseInputDelegate;
+        %tmp.12 = lgetv %view.1;
+        %tmp.6 = newc %tmp.10 (%tmp.12);
+        lputv %delegate.2 %tmp.6;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 55 8 ]
+        %tmp.13 = newa Array<Views or InputDelegates> 2;
+        %tmp.15 = lgetv %view.1;
+        %tmp.16 = dup %tmp.13;
+        %tmp.17 = aputv %tmp.16 0 %tmp.15;
+        %tmp.19 = lgetv %delegate.2;
+        %tmp.20 = dup %tmp.17;
+        %tmp.21 = aputv %tmp.20 1 %tmp.19;
+        ret %tmp.21;
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_52_72_stop:
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 60; ]
+    public
+    function startSensor() {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_60_34_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 62 2 ]
+        [ "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_60_34_start" "_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_60_34_stop" ]
+        %options.1 = local;
+        %tmp.1 = newd 2;
+        %tmp.3 = const :period;
+        %tmp.4 = 4;
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = aputv %tmp.5 %tmp.3 %tmp.4;
+        %tmp.8 = const :accelerometer;
+        %tmp.9 = newd 2;
+        %tmp.11 = const :enabled;
+        %tmp.12 = true;
+        %tmp.13 = dup %tmp.9;
+        %tmp.14 = aputv %tmp.13 %tmp.11 %tmp.12;
+        %tmp.16 = const :sampleRate;
+        %tmp.17 = 10;
+        %tmp.18 = dup %tmp.14;
+        %tmp.19 = aputv %tmp.18 %tmp.16 %tmp.17;
+        %tmp.20 = dup %tmp.6;
+        %tmp.21 = aputv %tmp.20 %tmp.8 %tmp.19;
+        lputv %options.1 %tmp.21;
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 69 8 ]
+        %tmp.22 = getm $.Toybox.Sensor;
+        %tmp.23 = getv function %tmp.22 :registerSensorDataListener;
+        %tmp.24 = self;
+        %tmp.25 = getv function %tmp.24 :method;
+        %tmp.27 = const :onData;
+        %tmp.28 = invoke %tmp.24 %tmp.25(%tmp.27);
+        %tmp.30 = lgetv %options.1;
+        invoke %tmp.22 %tmp.23(%tmp.28, %tmp.30);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_60_34_stop:
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 72; ]
+    public
+    function onData(sensorData) {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_72_39_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 73 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :sendAccelData;
+        %tmp.3 = lgetv %sensorData;
+        %tmp.4 = getv %tmp.3 :accelerometerData;
+        %tmp.5 = getv %tmp.4 :x;
+        %tmp.6 = lgetv %sensorData;
+        %tmp.7 = getv %tmp.6 :accelerometerData;
+        %tmp.8 = getv %tmp.7 :y;
+        %tmp.9 = lgetv %sensorData;
+        %tmp.10 = getv %tmp.9 :accelerometerData;
+        %tmp.11 = getv %tmp.10 :z;
+        invoke %tmp.1 %tmp.2(%tmp.5, %tmp.8, %tmp.11);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_72_39_stop:
+    }
+    [ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 76; ]
+    public
+    function sendAccelData(x, y, z) {
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_76_41_start:
+[ "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc" 77 8 ]
+        %tmp.1 = getm $.Toybox.Communications;
+        %tmp.2 = getv function %tmp.1 :transmit;
+        %tmp.4 = lgetv %x;
+        %tmp.5 = ",";
+        %tmp.6 = add %tmp.4 %tmp.5;
+        %tmp.8 = lgetv %y;
+        %tmp.9 = add %tmp.6 %tmp.8;
+        %tmp.10 = ",";
+        %tmp.11 = add %tmp.9 %tmp.10;
+        %tmp.13 = lgetv %z;
+        %tmp.14 = add %tmp.11 %tmp.13;
+        %tmp.15 = newd 0;
+        %tmp.16 = lgetv %self;
+        %tmp.17 = getv %tmp.16 :commListener;
+        invoke %tmp.1 %tmp.2(%tmp.14, %tmp.15, %tmp.17);
+_home_lunkwill_projects_garmin_connect_seed_source_NumberPickerApp_mc_76_41_stop:
+    }
+}
+[ @file = "/home/lunkwill/projects/garmin-connect-seed/source/NumberPickerApp.mc"; @line = 7; ]
+<init> {
+}

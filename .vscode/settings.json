@@ -1,3 +1,14 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+    "makefile.extensionOutputFolder": "./.vscode",
+    "spellright.language": [
+        "en-US-10-1."
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "[plaintext]": {
+        "diffEditor.wordWrap": "on"
+    }
 }
